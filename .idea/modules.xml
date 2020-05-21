@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/../MysSql-Memorandum/.idea/MySql-Memorandum.iml" filepath="$PROJECT_DIR$/../MysSql-Memorandum/.idea/MySql-Memorandum.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/MySQL-Memorandum.iml" filepath="$PROJECT_DIR$/.idea/MySQL-Memorandum.iml" />
     </modules>
   </component>
 </project>
