@@ -1,0 +1,284 @@
+-- MySQL dump 10.13  Distrib 5.7.27, for osx10.14 (x86_64)
+--
+-- Host: 127.0.0.1    Database: locavoit
+-- ------------------------------------------------------
+-- Server version	5.7.26
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `categories`
+--
+
+DROP TABLE IF EXISTS `categories`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `categories` (
+  `idCat` char(1) NOT NULL,
+  `descCat` varchar(50) NOT NULL,
+  `nbPortesCat` tinyint(1) unsigned NOT NULL,
+  `nbPlacesCat` tinyint(2) unsigned NOT NULL,
+  `nbBagCat` tinyint(1) unsigned NOT NULL,
+  `pxKmCat` decimal(3,2) unsigned NOT NULL,
+  `pxJourCat` decimal(3,2) unsigned NOT NULL,
+  PRIMARY KEY (`idCat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `categories`
+--
+
+LOCK TABLES `categories` WRITE;
+/*!40000 ALTER TABLE `categories` DISABLE KEYS */;
+INSERT INTO `categories` (`idCat`, `descCat`, `nbPortesCat`, `nbPlacesCat`, `nbBagCat`, `pxKmCat`, `pxJourCat`) VALUES ('A','petite voiture économique 3p',3,4,2,0.19,9.99),('B','petite voiture économique 5p',5,5,2,0.21,9.99),('C','voiture compacte',5,5,3,0.23,9.99),('N','monospace',5,6,4,0.29,9.99),('P','minibus',4,9,5,0.32,9.99);
+/*!40000 ALTER TABLE `categories` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `clients`
+--
+
+DROP TABLE IF EXISTS `clients`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `clients` (
+  `idCli` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `nomCli` varchar(30) NOT NULL,
+  `prenomCli` varchar(30) NOT NULL,
+  PRIMARY KEY (`idCli`),
+  KEY `idCli` (`idCli`)
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `clients`
+--
+
+LOCK TABLES `clients` WRITE;
+/*!40000 ALTER TABLE `clients` DISABLE KEYS */;
+INSERT INTO `clients` (`idCli`, `nomCli`, `prenomCli`) VALUES (1,'Leroy','Albert'),(2,'Leprince','Laurent'),(3,'Dheux','Albert'),(4,'Leroy','Philippe'),(5,'Legrand','Alexandre'),(6,'Lequin','Charles');
+/*!40000 ALTER TABLE `clients` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `locations`
+--
+
+DROP TABLE IF EXISTS `locations`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `locations` (
+  `idLoc` int(10) unsigned NOT NULL AUTO_INCREMENT,
+  `voitureLoc` char(8) NOT NULL,
+  `clientLoc` int(10) unsigned NOT NULL,
+  `dDebLoc` date NOT NULL,
+  `dFinLoc` date DEFAULT NULL,
+  `kmDebLoc` int(10) unsigned NOT NULL,
+  `kmFinLoc` int(10) unsigned DEFAULT NULL,
+  `prixLoc` decimal(5,2) DEFAULT NULL,
+  `remLoc` varchar(100) DEFAULT NULL,
+  PRIMARY KEY (`idLoc`),
+  KEY `voitureLoc` (`voitureLoc`),
+  KEY `clientLoc` (`clientLoc`),
+  CONSTRAINT `locations_ibfk_1` FOREIGN KEY (`voitureLoc`) REFERENCES `voitures` (`idVoit`),
+  CONSTRAINT `locations_ibfk_2` FOREIGN KEY (`clientLoc`) REFERENCES `clients` (`idCli`)
+) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `locations`
+--
+
+LOCK TABLES `locations` WRITE;
+/*!40000 ALTER TABLE `locations` DISABLE KEYS */;
+INSERT INTO `locations` (`idLoc`, `voitureLoc`, `clientLoc`, `dDebLoc`, `dFinLoc`, `kmDebLoc`, `kmFinLoc`, `prixLoc`, `remLoc`) VALUES (1,'1-AAA001',1,'2014-01-03','2014-01-07',50,750,253.00,NULL),(2,'1-AAA001',4,'2014-01-07','2014-01-09',750,1130,144.20,NULL),(3,'1-AAA001',1,'2014-01-15','2014-01-19',1130,2310,344.20,NULL),(4,'1-AAA001',1,'2014-01-21','2014-01-25',2350,4560,539.90,'voiture déclassée'),(5,'1-AAA003',1,'2014-02-01',NULL,50,NULL,NULL,NULL),(6,'1-AAA002',2,'2014-01-11','2014-01-19',50,4120,989.30,NULL),(7,'1-CCC001',6,'2014-01-07','2014-01-12',50,3020,893.10,NULL),(8,'1-CCC002',3,'2014-01-09','2014-01-11',50,560,222.30,NULL),(9,'1-CCC002',3,'2014-01-13','2014-01-17',580,1135,302.65,NULL),(10,'1-CCC002',5,'2014-01-21','2014-01-26',1135,2360,491.75,NULL),(11,'1-NNN001',2,'2014-01-08','2019-01-14',50,2560,999.99,NULL),(12,'1-NNN001',4,'2014-01-15','2014-01-21',2560,3100,471.60,NULL),(14,'1-PPP001',6,'2014-01-12',NULL,50,NULL,NULL,NULL),(15,'1-PPP002',1,'2014-01-28',NULL,50,NULL,NULL,NULL);
+/*!40000 ALTER TABLE `locations` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pays`
+--
+
+DROP TABLE IF EXISTS `pays`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pays` (
+  `codePays` char(3) NOT NULL,
+  `nomPays` varchar(30) NOT NULL,
+  PRIMARY KEY (`codePays`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pays`
+--
+
+LOCK TABLES `pays` WRITE;
+/*!40000 ALTER TABLE `pays` DISABLE KEYS */;
+INSERT INTO `pays` (`codePays`, `nomPays`) VALUES ('AUT','Autriche'),('BEL','Belgique'),('CHE','Suisse'),('DEU','Allemagne'),('ESP','Espagne'),('FRA','France'),('ITA','Italie'),('LUX','Luxembourg'),('NLD','Pays-Bas'),('PRT','Portugal');
+/*!40000 ALTER TABLE `pays` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `personne`
+--
+
+DROP TABLE IF EXISTS `personne`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `personne` (
+  `idPers` char(5) NOT NULL,
+  `nomPers` varchar(30) NOT NULL,
+  `prenomPers` varchar(30) NOT NULL,
+  `nationPers` char(3) NOT NULL,
+  PRIMARY KEY (`idPers`),
+  KEY `nationPers` (`nationPers`),
+  CONSTRAINT `personne_ibfk_1` FOREIGN KEY (`nationPers`) REFERENCES `pays` (`codePays`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `personne`
+--
+
+LOCK TABLES `personne` WRITE;
+/*!40000 ALTER TABLE `personne` DISABLE KEYS */;
+INSERT INTO `personne` (`idPers`, `nomPers`, `prenomPers`, `nationPers`) VALUES ('BISAL','Bistrot','Alonzo','ESP'),('DHEAL','DHEUX','Albert','BEL'),('DUBLU','Dubois','Luc','FRA'),('DUPMA','Dupont','Marc','BEL'),('DUPPI','Dupont','Pierre','BEL'),('EGRHA','Egretel','Hansel','DEU'),('EINFR','Einstein','Frank','DEU'),('FATFE','Tation','Félicie','FRA'),('LERAL','Leroy','Albert','BEL'),('LERPH','Leroy','Philippe','BEL'),('OPOFI','Opost','Fidèle','LUX'),('PERIN','Pere','Inès','ESP'),('POREV','Porée','Eva','BEL');
+/*!40000 ALTER TABLE `personne` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `tournee`
+--
+
+DROP TABLE IF EXISTS `tournee`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `tournee` (
+  `dateT` date NOT NULL,
+  `paysT` char(3) NOT NULL,
+  `descT` varchar(100) NOT NULL,
+  PRIMARY KEY (`dateT`),
+  KEY `paysT` (`paysT`),
+  CONSTRAINT `tournee_ibfk_1` FOREIGN KEY (`paysT`) REFERENCES `pays` (`codePays`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `tournee`
+--
+
+LOCK TABLES `tournee` WRITE;
+/*!40000 ALTER TABLE `tournee` DISABLE KEYS */;
+INSERT INTO `tournee` (`dateT`, `paysT`, `descT`) VALUES ('2016-01-01','BEL','Meilleurs voeux'),('2016-01-02','FRA','Bonne année à nos voisins'),('2016-01-04','DEU','DEU 01 Présentation collection 2016'),('2016-01-05','LUX','Visite de courtoisie'),('2016-01-07','BEL','BEL Tournée 01'),('2016-01-08','ITA','ITA Tournée 01'),('2016-01-09','DEU','DEU Tournée 02'),('2016-01-11','BEL','BEL Présentation nouveaux tarifs'),('2016-01-14','BEL','Récuppération commandes janvier'),('2016-01-17','BEL','Examen'),('2016-01-18','ESP','Présentation produits 2016'),('2016-01-19','PRT','Présentation produits 2016');
+/*!40000 ALTER TABLE `tournee` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `villes`
+--
+
+DROP TABLE IF EXISTS `villes`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `villes` (
+  `codeV` char(3) NOT NULL,
+  `nomV` varchar(30) NOT NULL,
+  `paysV` char(3) NOT NULL,
+  PRIMARY KEY (`codeV`),
+  KEY `paysV` (`paysV`),
+  CONSTRAINT `villes_ibfk_1` FOREIGN KEY (`paysV`) REFERENCES `pays` (`codePays`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `villes`
+--
+
+LOCK TABLES `villes` WRITE;
+/*!40000 ALTER TABLE `villes` DISABLE KEYS */;
+INSERT INTO `villes` (`codeV`, `nomV`, `paysV`) VALUES ('AMS','Amsterdam','NLD'),('ANR','Anvers','BEL'),('BCN','Barcelone','ESP'),('BIO','Bilbao','ESP'),('BOD','Bordeaux','FRA'),('BRU','Bruxelles','BEL'),('BSL','Bâle','CHE'),('CGN','Cologne','DEU'),('CRL','Charleroi','BEL'),('FRA','Franckfurt','DEU'),('GRX','Grenade','ESP'),('GVA','Genève','CHE'),('HAM','Hambourg','DEU'),('INN','Innsbruck','AUT'),('LGG','Liège','BEL'),('LIS','Lisbonne','PRT'),('LUX','Luxembourg ville','LUX'),('LYN','Lyon','FRA'),('MAD','Madrid','ESP'),('MPL','Montpellier','FRA'),('MST','Maastricht','NLD'),('MUC','Munich','DEU'),('NAP','Naples','ITA'),('NCE','Nice','FRA'),('OPO','Porto','PRT'),('PAR','Paris','FRA'),('PSA','Pise','ITA'),('RTM','Rotterdam','NLD'),('TRN','Turin','ITA'),('UDN','Udine','ITA'),('VIE','Vienne','AUT'),('ZRH','Zurich','CHE');
+/*!40000 ALTER TABLE `villes` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `visites`
+--
+
+DROP TABLE IF EXISTS `visites`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `visites` (
+  `tourneeVis` date NOT NULL,
+  `villeVis` char(3) NOT NULL,
+  `representantVis` char(5) NOT NULL,
+  PRIMARY KEY (`tourneeVis`,`villeVis`),
+  KEY `villeVis` (`villeVis`),
+  KEY `representantVis` (`representantVis`),
+  CONSTRAINT `visites_ibfk_1` FOREIGN KEY (`tourneeVis`) REFERENCES `tournee` (`dateT`),
+  CONSTRAINT `visites_ibfk_2` FOREIGN KEY (`villeVis`) REFERENCES `villes` (`codeV`),
+  CONSTRAINT `visites_ibfk_3` FOREIGN KEY (`representantVis`) REFERENCES `personne` (`idPers`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `visites`
+--
+
+LOCK TABLES `visites` WRITE;
+/*!40000 ALTER TABLE `visites` DISABLE KEYS */;
+INSERT INTO `visites` (`tourneeVis`, `villeVis`, `representantVis`) VALUES ('2016-01-01','ANR','BISAL'),('2016-01-14','ANR','BISAL'),('2016-01-17','ANR','BISAL'),('2016-01-01','BRU','DHEAL'),('2016-01-02','BOD','DHEAL'),('2016-01-04','CGN','DHEAL'),('2016-01-07','BRU','DHEAL'),('2016-01-09','CGN','DHEAL'),('2016-01-01','CRL','DUBLU'),('2016-01-08','NAP','DUBLU'),('2016-01-14','BRU','DUBLU'),('2016-01-01','LGG','DUPMA'),('2016-01-11','CRL','DUPMA'),('2016-01-17','CRL','DUPMA'),('2016-01-17','BRU','DUPPI'),('2016-01-04','FRA','EGRHA'),('2016-01-09','FRA','EGRHA'),('2016-01-18','BIO','EGRHA'),('2016-01-19','LIS','EGRHA'),('2016-01-02','LYN','EINFR'),('2016-01-04','HAM','EINFR'),('2016-01-07','ANR','EINFR'),('2016-01-09','HAM','EINFR'),('2016-01-18','MAD','EINFR'),('2016-01-19','OPO','EINFR'),('2016-01-11','BRU','FATFE'),('2016-01-14','CRL','LERAL'),('2016-01-02','MPL','LERPH'),('2016-01-14','LGG','LERPH'),('2016-01-02','NCE','OPOFI'),('2016-01-04','MUC','OPOFI'),('2016-01-05','LUX','OPOFI'),('2016-01-07','CRL','OPOFI'),('2016-01-08','TRN','OPOFI'),('2016-01-17','LGG','OPOFI'),('2016-01-11','LGG','PERIN'),('2016-01-02','PAR','POREV'),('2016-01-07','LGG','POREV'),('2016-01-11','ANR','POREV'),('2016-01-18','BCN','POREV');
+/*!40000 ALTER TABLE `visites` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `voitures`
+--
+
+DROP TABLE IF EXISTS `voitures`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `voitures` (
+  `idVoit` varchar(8) NOT NULL COMMENT 'plaque',
+  `modVoit` varchar(30) NOT NULL,
+  `catVoit` char(1) NOT NULL,
+  `carbVoit` enum('E','D') NOT NULL COMMENT 'E/D',
+  `kmVoit` int(10) unsigned NOT NULL,
+  `dDebVoit` date NOT NULL COMMENT 'mise en service',
+  `dFinVoit` date DEFAULT NULL COMMENT 'mise hors service',
+  PRIMARY KEY (`idVoit`),
+  KEY `catVoit` (`catVoit`),
+  CONSTRAINT `voitures_ibfk_1` FOREIGN KEY (`catVoit`) REFERENCES `categories` (`idCat`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `voitures`
+--
+
+LOCK TABLES `voitures` WRITE;
+/*!40000 ALTER TABLE `voitures` DISABLE KEYS */;
+INSERT INTO `voitures` (`idVoit`, `modVoit`, `catVoit`, `carbVoit`, `kmVoit`, `dDebVoit`, `dFinVoit`) VALUES ('1-AAA001','VW Polo','A','E',4560,'2014-01-01',NULL),('1-AAA002','VW Polo','A','E',4120,'2014-01-01','2014-01-25'),('1-AAA003','Citroen C1','A','E',50,'2014-01-31',NULL),('1-BBB001','VW Golf','B','D',50,'2014-01-01',NULL),('1-BBB002','VW Golf','B','D',50,'2014-01-01',NULL),('1-CCC001','VW Passat','C','D',3020,'2014-01-01',NULL),('1-CCC002','VW Passat','C','D',2360,'2014-01-01',NULL),('1-NNN001','Peugeot 807','N','D',3100,'2014-01-01',NULL),('1-NNN002','Peugeot 807','N','D',50,'2014-01-01',NULL),('1-PPP001','VW Transporter','P','D',50,'2014-01-01',NULL),('1-PPP002','Ford Transit','P','D',50,'2014-01-15',NULL);
+/*!40000 ALTER TABLE `voitures` ENABLE KEYS */;
+UNLOCK TABLES;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-05-21 16:41:54

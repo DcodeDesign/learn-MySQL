@@ -1,0 +1,229 @@
+-- MySQL dump 10.13  Distrib 5.7.27, for osx10.14 (x86_64)
+--
+-- Host: 127.0.0.1    Database: Dog_Racing
+-- ------------------------------------------------------
+-- Server version	5.7.26
+
+/*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
+/*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
+/*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
+/*!40101 SET NAMES utf8 */;
+/*!40103 SET @OLD_TIME_ZONE=@@TIME_ZONE */;
+/*!40103 SET TIME_ZONE='+00:00' */;
+/*!40014 SET @OLD_UNIQUE_CHECKS=@@UNIQUE_CHECKS, UNIQUE_CHECKS=0 */;
+/*!40014 SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0 */;
+/*!40101 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO' */;
+/*!40111 SET @OLD_SQL_NOTES=@@SQL_NOTES, SQL_NOTES=0 */;
+
+--
+-- Table structure for table `chien`
+--
+
+DROP TABLE IF EXISTS `chien`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `chien` (
+  `idCh` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `nomCh` varchar(30) NOT NULL,
+  `descCh` varchar(50) DEFAULT NULL,
+  `nationCh` char(2) DEFAULT NULL,
+  PRIMARY KEY (`idCh`),
+  KEY `nationCh` (`nationCh`),
+  CONSTRAINT `chien_ibfk_1` FOREIGN KEY (`nationCh`) REFERENCES `pays` (`codeP`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=11 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `chien`
+--
+
+LOCK TABLES `chien` WRITE;
+/*!40000 ALTER TABLE `chien` DISABLE KEYS */;
+INSERT INTO `chien` (`idCh`, `nomCh`, `descCh`, `nationCh`) VALUES (1,'Bill','ami de Boule','BE'),(2,'Milou','compagnon de Tintin','BE'),(3,'Idefix','le gaulois','FR'),(4,'Pif','Indéterminé','XX'),(5,'Snoopy','Indéterminé','US'),(6,'Gai-Luron','Indéterminé','FR'),(7,'Rantanplan','plus bête que son ombre','BE'),(8,'Pluto','Indéterminé','US'),(9,'Lassie','Indéterminé','XX'),(10,'Crockdur','Indéterminé','UK');
+/*!40000 ALTER TABLE `chien` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `course`
+--
+
+DROP TABLE IF EXISTS `course`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `course` (
+  `idC` int(3) unsigned zerofill NOT NULL AUTO_INCREMENT,
+  `nomC` varchar(30) NOT NULL,
+  `dateC` date NOT NULL,
+  `lieuC` char(2) NOT NULL,
+  PRIMARY KEY (`idC`),
+  KEY `lieuC` (`lieuC`),
+  CONSTRAINT `course_ibfk_1` FOREIGN KEY (`lieuC`) REFERENCES `pays` (`codeP`) ON UPDATE CASCADE
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `course`
+--
+
+LOCK TABLES `course` WRITE;
+/*!40000 ALTER TABLE `course` DISABLE KEYS */;
+INSERT INTO `course` (`idC`, `nomC`, `dateC`, `lieuC`) VALUES (001,'IEPSCF, du C308 au C313','2013-01-10','BE'),(002,'Paris en motocrotte','2014-05-25','FR'),(003,'Trophée du Père Noël','2014-12-25','BE'),(013,'de la niche au bol','2017-01-09','US'),(018,'Trophée Frolic','2017-12-24','FR'),(019,'Attrap\'Chat','2017-11-19','BE');
+/*!40000 ALTER TABLE `course` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `pays`
+--
+
+DROP TABLE IF EXISTS `pays`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `pays` (
+  `codeP` char(2) NOT NULL,
+  `nomP` varchar(30) NOT NULL,
+  PRIMARY KEY (`codeP`),
+  UNIQUE KEY `nomP` (`nomP`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `pays`
+--
+
+LOCK TABLES `pays` WRITE;
+/*!40000 ALTER TABLE `pays` DISABLE KEYS */;
+INSERT INTO `pays` (`codeP`, `nomP`) VALUES ('BE','Belgique'),('US','Etats-Unis'),('FR','France'),('XX','Indéterminé'),('IT','Italie'),('UK','Royaume-Uni');
+/*!40000 ALTER TABLE `pays` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Table structure for table `resultat`
+--
+
+DROP TABLE IF EXISTS `resultat`;
+/*!40101 SET @saved_cs_client     = @@character_set_client */;
+/*!40101 SET character_set_client = utf8 */;
+CREATE TABLE `resultat` (
+  `idC` int(3) unsigned zerofill NOT NULL,
+  `idCh` bigint(20) unsigned NOT NULL,
+  `temps` time DEFAULT NULL,
+  PRIMARY KEY (`idCh`,`idC`),
+  KEY `idC` (`idC`),
+  CONSTRAINT `resultat_ibfk_1` FOREIGN KEY (`idCh`) REFERENCES `chien` (`idCh`) ON UPDATE CASCADE,
+  CONSTRAINT `resultat_ibfk_2` FOREIGN KEY (`idC`) REFERENCES `course` (`idC`) ON DELETE CASCADE ON UPDATE CASCADE
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+/*!40101 SET character_set_client = @saved_cs_client */;
+
+--
+-- Dumping data for table `resultat`
+--
+
+LOCK TABLES `resultat` WRITE;
+/*!40000 ALTER TABLE `resultat` DISABLE KEYS */;
+INSERT INTO `resultat` (`idC`, `idCh`, `temps`) VALUES (002,1,'00:05:35'),(001,3,'00:01:37'),(002,3,'01:00:00'),(013,3,'00:00:03'),(002,4,'00:04:12'),(013,4,'00:00:10'),(001,5,'00:01:04'),(002,5,'00:03:59'),(001,7,'00:02:03'),(013,7,'00:00:07'),(001,8,'00:02:31'),(002,8,'00:04:26'),(001,10,'00:01:25'),(002,10,'00:04:10');
+/*!40000 ALTER TABLE `resultat` ENABLE KEYS */;
+UNLOCK TABLES;
+
+--
+-- Temporary table structure for view `v_chien_nocourse`
+--
+
+DROP TABLE IF EXISTS `v_chien_nocourse`;
+/*!50001 DROP VIEW IF EXISTS `v_chien_nocourse`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `v_chien_nocourse` AS SELECT 
+ 1 AS `nomCh`,
+ 1 AS `nomP`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `v_courserapide`
+--
+
+DROP TABLE IF EXISTS `v_courserapide`;
+/*!50001 DROP VIEW IF EXISTS `v_courserapide`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `v_courserapide` AS SELECT 
+ 1 AS `nomC`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Temporary table structure for view `v_dog_details`
+--
+
+DROP TABLE IF EXISTS `v_dog_details`;
+/*!50001 DROP VIEW IF EXISTS `v_dog_details`*/;
+SET @saved_cs_client     = @@character_set_client;
+SET character_set_client = utf8;
+/*!50001 CREATE VIEW `v_dog_details` AS SELECT 
+ 1 AS `nomCh`,
+ 1 AS `nomP`,
+ 1 AS `nomC`*/;
+SET character_set_client = @saved_cs_client;
+
+--
+-- Final view structure for view `v_chien_nocourse`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_chien_nocourse`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_chien_nocourse` AS select `chien`.`nomCh` AS `nomCh`,`pays`.`nomP` AS `nomP` from (((`chien` left join `resultat` on((`chien`.`idCh` = `resultat`.`idCh`))) left join `course` on((`resultat`.`idC` = `course`.`idC`))) left join `pays` on((`chien`.`nationCh` = `pays`.`codeP`))) where isnull(`resultat`.`temps`) order by `chien`.`nomCh` */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `v_courserapide`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_courserapide`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_courserapide` AS select `course`.`nomC` AS `nomC` from `course` where (`course`.`idC` = (select `resultat`.`idC` from `resultat` order by `resultat`.`temps` limit 1)) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+
+--
+-- Final view structure for view `v_dog_details`
+--
+
+/*!50001 DROP VIEW IF EXISTS `v_dog_details`*/;
+/*!50001 SET @saved_cs_client          = @@character_set_client */;
+/*!50001 SET @saved_cs_results         = @@character_set_results */;
+/*!50001 SET @saved_col_connection     = @@collation_connection */;
+/*!50001 SET character_set_client      = utf8mb4 */;
+/*!50001 SET character_set_results     = utf8mb4 */;
+/*!50001 SET collation_connection      = utf8mb4_general_ci */;
+/*!50001 CREATE ALGORITHM=UNDEFINED */
+/*!50013 DEFINER=`root`@`localhost` SQL SECURITY DEFINER */
+/*!50001 VIEW `v_dog_details` AS select `chien`.`nomCh` AS `nomCh`,`pays`.`nomP` AS `nomP`,`course`.`nomC` AS `nomC` from (((`chien` left join `pays` on((`chien`.`nationCh` = `pays`.`codeP`))) left join `course` on((`chien`.`idCh` = `course`.`idC`))) left join `resultat` on((`chien`.`idCh` = `resultat`.`idCh`))) where isnull(`resultat`.`temps`) */;
+/*!50001 SET character_set_client      = @saved_cs_client */;
+/*!50001 SET character_set_results     = @saved_cs_results */;
+/*!50001 SET collation_connection      = @saved_col_connection */;
+/*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
+
+/*!40101 SET SQL_MODE=@OLD_SQL_MODE */;
+/*!40014 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS */;
+/*!40014 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS */;
+/*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
+/*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
+/*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
+/*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
+
+-- Dump completed on 2020-05-21 16:43:14
