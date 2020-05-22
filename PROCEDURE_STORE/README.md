@@ -12,6 +12,13 @@ DROP PROCEDURE IF EXISTS [name_procedure];
 DELIMITER |
 CREATE PROCEDURE [name_procedure]()
   BEGIN
+      DECLARE _i INT;
+      DECLARE _txt VARCHAR(100) DEFAULT '';
+  
+      SET _i = 1;
+      SET _txt = 'txt';
+  
+      SELECT _i, _txt AS Impair;
 
   end |
 DELIMITER ;
