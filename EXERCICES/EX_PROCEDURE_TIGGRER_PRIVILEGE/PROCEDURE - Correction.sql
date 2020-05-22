@@ -34,7 +34,7 @@ DROP PROCEDURE IF EXISTS Impair;
 -- 2. Créer une procédure qui affiche les noms et prénoms dont la clé est impaire.
 -- ******************************************************************
 
-USE Monde;
+USE World;
 DROP PROCEDURE IF EXISTS PKImpair;
 
 DELIMITER |

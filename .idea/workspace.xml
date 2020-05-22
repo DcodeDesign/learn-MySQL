@@ -2,7 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="b054bcc2-6973-4177-91fa-329491a96b60" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/PROCEDURE_STORE/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/PROCEDURE_STORE/README.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TRIGGER/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/PROCEDURE - Correction.sql" beforeDir="false" afterPath="$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/PROCEDURE - Correction.sql" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/.tmp/" />
     <ignored path="$PROJECT_DIR$/temp/" />
@@ -32,20 +34,81 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/PROCEDURE - Correction.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="435">
-              <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="-80">
+              <caret line="366" selection-start-line="366" selection-end-line="371" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Ex_Procedure_-_Trigger.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="90">
+              <caret line="6" selection-start-line="6" selection-end-line="12" selection-end-column="64" />
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/TRIGGER/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="75">
+                <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WHEN_CASE/WHEN_CASE.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="294">
+              <caret line="46" column="17" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="17" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/WHEN_CASE/README.md">
+          <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+            <state split_layout="SPLIT">
+              <first_editor relative-caret-position="373">
+                <caret line="33" column="93" selection-start-line="33" selection-start-column="93" selection-end-line="33" selection-end-column="93" />
+              </first_editor>
+              <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EXERCICES/EX_SELECT_INSERT_UPDATE_DELETE_UNDER-QUERY/EX1_SELECT_INSERT_UPDATE_DELETE_UNDER-QUERY.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/PROCEDURE_STORE/README.md">
           <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
             <state split_layout="SPLIT">
               <first_editor relative-caret-position="285">
-                <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+                <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
               </first_editor>
               <second_editor />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Correction_Utilisateurs_et_Privileges.sql">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/CREATE DATABASE/CREATE_DATABASE_EX1.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="445">
+              <caret line="35" selection-start-line="35" selection-end-line="37" selection-end-column="100" />
             </state>
           </provider>
         </entry>
@@ -71,14 +134,16 @@
         <option value="$PROJECT_DIR$/PRIVILEGE/PRIVILIGE.sql" />
         <option value="$PROJECT_DIR$/PRIVILEGE/README.md" />
         <option value="$PROJECT_DIR$/PROCEDURE_STORE/README.md" />
+        <option value="$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/PROCEDURE - Correction.sql" />
+        <option value="$PROJECT_DIR$/TRIGGER/README.md" />
       </list>
     </option>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="1442" />
-    <option name="y" value="23" />
-    <option name="width" value="1437" />
-    <option name="height" value="1057" />
+    <option name="x" value="1808" />
+    <option name="y" value="83" />
+    <option name="width" value="1440" />
+    <option name="height" value="877" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectView">
@@ -93,22 +158,6 @@
             <path>
               <item name="MySQL-Memorandum" type="b2602c69:ProjectViewProjectNode" />
               <item name="MySQL-Memorandum" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MySQL-Memorandum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MySQL-Memorandum" type="462c0819:PsiDirectoryNode" />
-              <item name="EXERCICES" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MySQL-Memorandum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MySQL-Memorandum" type="462c0819:PsiDirectoryNode" />
-              <item name="EXERCICES" type="462c0819:PsiDirectoryNode" />
-              <item name="EX_PROCEDURE_TIGGRER_PRIVILEGE" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MySQL-Memorandum" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MySQL-Memorandum" type="462c0819:PsiDirectoryNode" />
-              <item name="PROCEDURE_STORE" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -158,12 +207,12 @@
       <updated>1590063173736</updated>
       <workItem from="1590063174917" duration="82000" />
       <workItem from="1590063289167" duration="4478000" />
-      <workItem from="1590139578624" duration="5491000" />
+      <workItem from="1590139578624" duration="8591000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="10051000" />
+    <option name="totallyTimeSpent" value="13151000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -175,10 +224,10 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="1442" y="23" width="1437" height="1057" extended-state="0" />
+    <frame x="1808" y="83" width="1440" height="877" extended-state="0" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.23584229" />
+      <window_info content_ui="combo" id="Project" order="0" weight="0.2353362" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="DB Browser" order="2" />
       <window_info id="Project Explorer" order="3" />
@@ -198,7 +247,7 @@
       <window_info anchor="bottom" id="Version Control" order="9" weight="0.32953367" />
       <window_info anchor="bottom" id="DB Execution Console" order="10" />
       <window_info anchor="bottom" id="Database Changes" order="11" />
-      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.32953367" />
+      <window_info anchor="bottom" id="Terminal" order="12" visible="true" weight="0.40509555" />
       <window_info anchor="bottom" id="Event Log" order="13" side_tool="true" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -230,13 +279,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/CREATE DATABASE/CREATE_DATABASE_EX1.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PROCEDURE_STORE/procedure_store.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -247,23 +289,6 @@
             <caret line="18" column="35" selection-start-line="18" selection-start-column="35" selection-end-line="18" selection-end-column="35" />
           </first_editor>
           <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WHEN_CASE/README.md">
-      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
-        <state split_layout="SPLIT">
-          <first_editor relative-caret-position="495">
-            <caret line="33" column="93" selection-start-line="33" selection-start-column="93" selection-end-line="33" selection-end-column="93" />
-          </first_editor>
-          <second_editor />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/WHEN_CASE/WHEN_CASE.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
         </state>
       </provider>
     </entry>
@@ -338,30 +363,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Ex_Procedure_-_Trigger.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Ex_Procedure_-_Trigger_-_Correction.sql">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Correction_Utilisateurs_et_Privileges.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Ex_Trigger.sql">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/PROCEDURE - Correction.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="435">
-          <caret line="29" lean-forward="true" selection-start-line="29" selection-end-line="29" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/PROCEDURE_STORE/README.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
           <first_editor relative-caret-position="285">
-            <caret line="19" column="2" lean-forward="true" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+            <caret line="19" column="2" selection-start-line="19" selection-start-column="2" selection-end-line="19" selection-end-column="2" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Correction_Utilisateurs_et_Privileges.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/CREATE DATABASE/CREATE_DATABASE_EX1.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="445">
+          <caret line="35" selection-start-line="35" selection-end-line="37" selection-end-column="100" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHEN_CASE/WHEN_CASE.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="294">
+          <caret line="46" column="17" selection-start-line="46" selection-start-column="6" selection-end-line="46" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/WHEN_CASE/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="373">
+            <caret line="33" column="93" selection-start-line="33" selection-start-column="93" selection-end-line="33" selection-end-column="93" />
+          </first_editor>
+          <second_editor />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EXERCICES/EX_SELECT_INSERT_UPDATE_DELETE_UNDER-QUERY/EX1_SELECT_INSERT_UPDATE_DELETE_UNDER-QUERY.sql">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/PROCEDURE - Correction.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-80">
+          <caret line="366" selection-start-line="366" selection-end-line="371" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/EXERCICES/EX_PROCEDURE_TIGGRER_PRIVILEGE/Ex_Procedure_-_Trigger.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="6" selection-start-line="6" selection-end-line="12" selection-end-column="64" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/TRIGGER/README.md">
+      <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
+        <state split_layout="SPLIT">
+          <first_editor relative-caret-position="75">
+            <caret line="5" lean-forward="true" selection-start-line="5" selection-end-line="5" />
           </first_editor>
           <second_editor />
         </state>
