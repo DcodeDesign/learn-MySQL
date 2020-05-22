@@ -6,18 +6,17 @@ est utilisée pour exécuter une procédure stockée.
 
 **Exemple :**
 ```
-DELIMITER //
-CREATE PROCEDURE NameProc()
+USE [name_database];
+DROP PROCEDURE IF EXISTS [name_procedure];
+
+DELIMITER |
+CREATE PROCEDURE [name_procedure]()
   BEGIN
-    # query...
-  END//
+
+  end |
 DELIMITER ;
-
-CALL NameProc();
-
-DROP PROCEDURE NameProc;
+CALL [name_procedure]();
 ```
-
 **Paramètre**
 
 Les procédures stockées peuvent avoir IN, INOUTet les OUTparamètres, en fonction de la version de MySQL. L'interface mysqli 
@@ -28,6 +27,7 @@ n'a pas de notion particulière pour les différents types de paramètres.
 Les paramètres d'entrée sont fournis avec CALL instruction. Veuillez vous assurer que les valeurs sont correctement échappées.
 
 **Exemple :**
+
 ```
 DELIMITER //
 CREATE PROCEDURE Proc1(IN _idPers INT)
